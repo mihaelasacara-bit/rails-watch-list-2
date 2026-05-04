@@ -9,5 +9,18 @@ class ListsController < ApplicationController
   end
 
   def create
+    @list = List.new(list_params)
+
+    if @list.save
+      redirect_to lists_path, notice: "List created!"
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
+  private
+
+  def list_params
+    params.require(:list).permit(:name)
   end
 end
