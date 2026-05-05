@@ -1,0 +1,24 @@
+<div class="container">
+  <h1 class="page-title mt-3"> Movies </h1>
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+    <% @movies.each do |movie| %>
+      <div class="col">
+        <div class="movie-card h-100 d-flex flex-column">
+          <div class="movie-img" style="background-image: url(<%= movie.poster_url %>)"></div>
+            <div class="movie-card-body">
+              <h1><%= movie.title %></h1>
+                <p class="movie-overview"><%= movie.overview %> </p>
+            </div>
+            <div class="movie-card-bottom d-flex justify-content-between mt-auto">
+              <button type="button" class="bookmark-btn btn btn-outline-dark"><i class="fa-solid fa-plus"></i> BOOKMARK</button>
+                <div class="">
+                  <p class="movie-rating"><i class="fa-regular fa-star"></i> <%= movie.rating.round(1) %></p>
+                </div>
+              </div>
+          </div>
+        </div>
+        <% end%>
+      </div>
+    </div>
+  </div>
+</div>

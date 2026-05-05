@@ -1,0 +1,14 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800,300italic,400italic,600italic,700italic,800italic);
+
+$heading-font-family: 'Montserrat', sans-serif;
+$paragraph-font-family: 'Open Sans', sans-serif;
+
+$accent-color: #e7e7e7;
+$brand-color:#fe4141;
+$dark-color: #1e1b26;
+
+.page-title{
+  font-family: $heading-font-family;
+  color: $accent-color;
+}
