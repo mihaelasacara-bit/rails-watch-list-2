@@ -1,12 +1,29 @@
-.navbar-lewagon {
+.navbar-watchlist {
   justify-content: space-between;
-  background: white;
+  background: #121212;
 }
 
-.navbar-lewagon .navbar-collapse {
+.navbar-watchlist .navbar-collapse {
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
+.navbar-watchlist .navbar-brand img {
   width: 40px;
 }
+
+.fa-ticket {
+  color: $accent-color;
+  font-size: 25px;
+  margin-left: 20px;
+}
+
+.nav-link {
+  color: $accent-color;
+  font-size: 20px;
+  margin-right: 20px;
+}
+
+.nav-link:hover {
+    color: $accent-color;
+    text-decoration: underline;
+  }
