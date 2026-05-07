@@ -1,12 +1,20 @@
 class BookmarksController < ApplicationController
   def create
     @list = List.find(params[:list_id])
-    @bookmark = Bookmark.new
+    @movie = Movie.find(params[:movie_id])
+    @bookmark = Bookmark.new(list: @list, movie: @movie)
 
     if @bookmark.save
-      redirect_to list_path(@list), notice: "Bookmark added!"
+      redirect_to list_movies_path, notice: "Bookmark added!"
     else
-      render :new, status: :unprocessable_entity
+      redirect_to list_movies_path, alert: @bookmark.errors.full_messages.join(", ")
     end
+  end
+
+  def destroy
+    @bookmark = Bookmark.find(params[:id])
+    @list = List.find(params[:list_id])
+    @bookmark.destroy
+    redirect_to list_path(@list), notice: "Bookmark removed!"
   end
 end

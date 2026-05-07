@@ -4,7 +4,7 @@
     <% @lists.each do |list| %>
       <div class="col">
         <div class="list-card h-100 d-flex flex-column">
-          <div class="list-img" style="background-image: url(<%= list.movies.empty? ? "https://images.unsplash.com/photo-1518676590629-3dcbd9c5a5c9?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" : list.movie.first.poster_url %>)"></div>
+          <div class="list-img" style="background-image: url(<%= list.movies.empty? ? "https://images.unsplash.com/photo-1518676590629-3dcbd9c5a5c9?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" : list.movies.first.poster_url %>)"></div>
           <div class="list-card-body">
             <h1><%= list.name %></h1>
           </div>

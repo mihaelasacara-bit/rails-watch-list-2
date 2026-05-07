@@ -14,10 +14,33 @@ body {
   margin-top: 20px;
   color: lightgray;
   width: 100%;
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.bookmark-delete-btn {
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  cursor: pointer;
+  color: white;
+  font-size: 1rem;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease;
+}
+
+.bookmark-delete-btn:hover {
+  background: rgba(0, 0, 0, 0.8);
 }
 
 .movie-card-body{
-  padding: 25px;
+  padding-top: 25px;
+  padding-left: 25px;
+  padding-right: 25px;
 }
 
 .movie-overview{
@@ -27,7 +50,7 @@ body {
 .movie-card-bottom{
   padding-left: 25px;
   padding-right: 25px;
-  padding-bottom: 25px;
+  padding-bottom: 10px;
 }
 
 .bookmark-btn {
@@ -51,7 +74,6 @@ body {
     background-position: top;
     background-repeat: no-repeat;
     background-size: cover;
-  z-index:111 !important;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   -webkit-mask-image: -webkit-gradient(linear, left top, left bottom,
@@ -63,7 +85,13 @@ body {
       color-stop(1.00,  rgba(0,0,0,0)));
 
   position:relative;
+}
 
+.movie-img form {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: fit-content;
 }
 
 /* TYPOGRAPHY STARTS */
