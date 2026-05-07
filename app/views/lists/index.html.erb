@@ -9,7 +9,9 @@
             <h1><%= list.name %></h1>
           </div>
           <div class="list-card-bottom d-flex justify-content-between mt-auto">
-            <button type="button" class="view-btn btn btn-outline-dark"><i class="fa-regular fa-circle-play"></i> VIEW LIST</button>
+            <%= link_to list_path(list), class: "view-btn btn btn-outline-dark" do %>
+            <i class="fa-regular fa-circle-play"></i> VIEW LIST
+            <% end %>
           </div>
         </div>
       </div>

@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
   root "lists#index"
 
-  resources :lists, only: [ :index, :create, :new ]
+  resources :lists, only: [ :index, :create, :new, :show ]
   resources :bookmarks, only: [ :create ]
   resources :movies, only: [ :index ]
 end

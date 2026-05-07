@@ -1,0 +1,9 @@
+<div class="container">
+  <h1 class="page-title mt-3"> <%= @list.name %> </h1>
+  <% if @list.movies.empty? %>
+    <p> Your watchlist is empty. </p>
+    <%= link_to movies_path, class: "view-btn btn btn-outline-dark" do %>
+    <i class="fa-solid fa-plus"></i> ADD MOVIES
+    <% end %>
+  <% end %>
+</div>
