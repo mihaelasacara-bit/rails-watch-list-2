@@ -3,32 +3,32 @@
   <%= link_to list_path(@list), class: "backlink" do %>
     <i class="fa-solid fa-backward-step"></i> Back to list
   <% end %>
-  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+  <div class="row row-cols-1 row-cols-md-1 row-cols-lg-2 g-4">
     <% @movies.each do |movie| %>
       <div class="col">
-        <div class="movie-card h-100 d-flex flex-column">
+        <div class="movie-card h-100 d-flex flex-row">
           <div class="movie-img" style="background-image: url(<%= movie.poster_url %>)">
           </div>
-          <div class="movie-card-body">
-            <h1><%= movie.title %></h1>
-            <p class="movie-overview"><%= movie.overview %> </p>
-          </div>
-          <div class="movie-card-bottom d-flex justify-content-between mt-auto">
-            <% unless movie.bookmarks.exists?(list_id: params[:list_id]) %>
-              <%= button_to list_movie_bookmarks_path(@list, movie), class: "bookmark-btn btn btn-outline-dark" do %>
-                <i class="fa-solid fa-plus"></i> BOOKMARK
-              <% end %>
-            <% else %>
-              <%= button_to list_movie_bookmarks_path(@list, movie), class: "bookmark-btn btn btn-outline-dark" do %>
-                <i class="fa-regular fa-circle-check"></i> SAVED
-              <% end %>
-            <% end %>
-            <div class="">
+          <div class="movie-card-content d-flex flex-column">
+            <div class="movie-card-body">
+              <h2 class="movie-title"><%= movie.title %></h2>
+              <p class="movie-overview"><%= movie.overview %></p>
+            </div>
+            <div class="movie-card-bottom d-flex justify-content-between mt-auto align-items-center">
               <p class="movie-rating"><i class="fa-regular fa-star"></i> <%= movie.rating.round(1) %></p>
+              <% unless movie.bookmarks.exists?(list_id: params[:list_id]) %>
+                <%= button_to list_movie_bookmarks_path(@list, movie), class: "bookmark-btn btn btn-outline-dark" do %>
+                  <i class="fa-solid fa-plus"></i> BOOKMARK
+                <% end %>
+              <% else %>
+                <%= button_to list_movie_bookmarks_path(@list, movie), class: "bookmark-btn btn btn-outline-dark" do %>
+                  <i class="fa-regular fa-circle-check"></i> SAVED
+                <% end %>
+              <% end %>
             </div>
           </div>
         </div>
       </div>
-    <% end%>
+    <% end %>
   </div>
 </div>
