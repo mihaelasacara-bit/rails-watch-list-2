@@ -13,15 +13,15 @@
             <div class="movie-card-body">
               <h2 class="movie-title"><%= movie.title %></h2>
               <p class="movie-overview"><%= movie.overview %></p>
+              <p class="movie-rating text-end"><i class="fa-regular fa-star"></i> <%= movie.rating.round(1) %></p>
             </div>
-            <div class="movie-card-bottom d-flex justify-content-between mt-auto align-items-center">
-              <p class="movie-rating"><i class="fa-regular fa-star"></i> <%= movie.rating.round(1) %></p>
+            <div class="movie-card-bottom d-flex mt-auto align-items-center">
               <% unless movie.bookmarks.exists?(list_id: params[:list_id]) %>
-                <%= button_to list_movie_bookmarks_path(@list, movie), class: "bookmark-btn btn btn-outline-dark" do %>
+                <%= button_to list_movie_bookmarks_path(@list, movie), form_class: "bookmark-delete-btn-form", class: "bookmark-btn btn btn-outline-dark" do %>
                   <i class="fa-solid fa-plus"></i> BOOKMARK
                 <% end %>
               <% else %>
-                <%= button_to list_movie_bookmarks_path(@list, movie), class: "bookmark-btn btn btn-outline-dark" do %>
+                <%= button_to list_movie_bookmarks_path(@list, movie), form_class: "bookmark-delete-btn-form", class: "bookmark-btn btn btn-outline-dark" do %>
                   <i class="fa-regular fa-circle-check"></i> SAVED
                 <% end %>
               <% end %>

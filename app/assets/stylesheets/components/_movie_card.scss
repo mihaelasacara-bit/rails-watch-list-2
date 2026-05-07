@@ -32,13 +32,14 @@ body {
 .movie-card-content {
   width: 66.666%;
   min-width: 0;
-  padding: 12px;
+  padding: 10px;
   display: flex;
   flex-direction: column;
 }
 
 .movie-title {
   font-size: 20px;
+  margin-bottom: 10px;
 }
 
 .movie-overview {
@@ -58,10 +59,17 @@ body {
   align-items: center;
   justify-content: center;
   transition: background 0.2s ease;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  margin-left: auto;
 }
 
 .bookmark-delete-btn:hover {
   background: rgba(0, 0, 0, 0.8);
+}
+
+.bookmark-delete-btn-form {
+  margin-left: auto;
 }
 
 .movie-img form {
