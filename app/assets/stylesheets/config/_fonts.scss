@@ -6,8 +6,12 @@
 $heading-font-family: 'Montserrat', sans-serif;
 $paragraph-font-family: 'Open Sans', sans-serif;
 
-.page-title{
+h1, h2, h3 {
   font-family: $heading-font-family;
+}
+
+li, p {
+  font-family: $paragraph-font-family;
 }
 
 .form-control{

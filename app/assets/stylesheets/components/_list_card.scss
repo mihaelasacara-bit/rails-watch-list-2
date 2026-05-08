@@ -1,25 +1,34 @@
 $accent-color: #e7e7e7;
-$brand-color:#fe4141;
+$brand-color: #fe4141;
 $dark-color: #1e1b26;
 
 body {
-  background:#1f1f1f;
+  background: #1f1f1f;
 }
 
-.list-card{
-  background-color:#1e1b26;
+#lists-row .col {
+  display: flex;
+}
+
+.list-card {
+  background-color: $dark-color;
   border-radius: 5px;
-  box-shadow:5px 5px 115px -14px black;
+  box-shadow: 5px 5px 115px -14px black;
   margin-top: 20px;
   color: lightgray;
   width: 100%;
+  overflow: hidden;
 }
 
-.list-card-body{
+.list-card-content {
+  min-width: 0;
+}
+
+.list-card-body {
   padding: 25px;
 }
 
-.list-card-bottom{
+.list-card-bottom {
   padding-left: 25px;
   padding-right: 25px;
   padding-bottom: 25px;
@@ -28,39 +37,39 @@ body {
 .view-btn {
   color: $accent-color;
   border-color: $accent-color;
-}
 
-.view-btn:hover {
+  &:hover {
     background-color: $accent-color;
     color: $dark-color;
   }
-
-.list-img {
-  width:100%;
-  height:350px;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  z-index:111 !important;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-  -webkit-mask-image: -webkit-gradient(linear, left top, left bottom,
-			color-stop(0.00,  rgba(0,0,0,1)),
-			color-stop(0.35,  rgba(0,0,0,1)),
-			color-stop(0.50,  rgba(0,0,0,1)),
-			color-stop(0.65,  rgba(0,0,0,1)),
-			color-stop(0.85,  rgba(0,0,0,0.6)),
-      color-stop(1.00,  rgba(0,0,0,0)));
-
-  position:relative;
-
 }
 
-/* TYPOGRAPHY STARTS */
+.list-img {
+  width: 160px;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  flex-shrink: 0;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
 
-/* Fonts */
-@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800,300italic,400italic,600italic,700italic,800italic);
+.movie-preview-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 
-$heading-font-family: 'Montserrat', sans-serif;
-$paragraph-font-family: 'Open Sans', sans-serif;
+  li {
+    padding: 3px 0;
+
+    i {
+      margin-right: 6px;
+      color: $brand-color;
+    }
+  }
+
+  .empty-list-msg, .more-movies-msg {
+    font-style: italic;
+    color: #6b6878;
+  }
+}

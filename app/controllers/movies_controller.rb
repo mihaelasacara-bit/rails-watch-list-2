@@ -29,7 +29,7 @@ class MoviesController < ApplicationController
         flash.now[:alert] = "Could not refresh movies from TMDB."
       end
 
-      @movies = Movie.all
+      @movies = Movie.all.order(:tmdb_id)
       @list = List.find(params[:list_id])
     end
   end

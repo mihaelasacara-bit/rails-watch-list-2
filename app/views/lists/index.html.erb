@@ -1,20 +1,36 @@
 <div class="container">
-  <h1 class="page-title mt-3"> Lists index </h1>
-  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mb-5">
+  <h1 class="page-title mt-3">Lists index</h1>
+  <div class="row row-cols-1 row-cols-md-2 g-4 mb-5" id="lists-row">
     <% @lists.each do |list| %>
       <div class="col">
-        <div class="list-card h-100 d-flex flex-column">
-          <div class="list-img" style="background-image: url(<%= list.movies.empty? ? "https://images.unsplash.com/photo-1518676590629-3dcbd9c5a5c9?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" : list.movies.first.poster_url %>)"></div>
-          <div class="list-card-body">
-            <h1><%= list.name %></h1>
+        <div class="list-card d-flex flex-row h-100">
+          <div class="list-img flex-shrink-0"
+               style="background-image: url(<%= list.movies.empty? ? "https://images.unsplash.com/photo-1518676590629-3dcbd9c5a5c9?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" : list.movies.first.poster_url %>)">
           </div>
-          <div class="list-card-bottom d-flex justify-content-between mt-auto">
-            <%= link_to list_path(list), class: "default-btn btn btn-outline-dark" do %>
-            <i class="fa-regular fa-circle-play"></i> VIEW LIST
-            <% end %>
+          <div class="list-card-content d-flex flex-column flex-grow-1">
+            <div class="list-card-body flex-grow-1">
+              <h2><%= list.name %></h2>
+              <ul class="movie-preview-list">
+                <% if list.movies.empty? %>
+                  <li class="empty-list-msg">This list is empty.</li>
+                <% else %>
+                  <% list.movies.first(3).each do |movie| %>
+                    <li><i class="fa-solid fa-clapperboard"></i> <%= movie.title %></li>
+                  <% end %>
+                  <% if list.movies.count > 3 %>
+                    <li class="more-movies-msg">& <%= list.movies.count - 3 %> more</li>
+                  <% end %>
+                <% end %>
+              </ul>
+            </div>
+            <div class="list-card-bottom d-flex justify-content-end mt-auto">
+              <%= link_to list_path(list), class: "default-btn btn btn-outline-dark view-btn" do %>
+                <i class="fa-regular fa-circle-play"></i> VIEW LIST
+              <% end %>
+            </div>
           </div>
         </div>
       </div>
-    <% end%>
+    <% end %>
   </div>
 </div>
