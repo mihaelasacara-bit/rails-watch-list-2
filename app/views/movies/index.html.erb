@@ -3,28 +3,42 @@
   <%= link_to list_path(@list), class: "backlink" do %>
     <i class="fa-solid fa-backward-step"></i> Back to list
   <% end %>
-  <div class="row row-cols-1 row-cols-md-1 row-cols-lg-2 g-4">
+  <div class="row">
+    <div class="col-12 my-3">
+      <%= form_with url: list_movies_path, method: :get, class: "d-flex justify-content-end" do %>
+        <%= label_tag :query, "Search movies", class: "visually-hidden" %>
+        <%= text_field_tag :query,
+              params[:query],
+              class: "form-control",
+              placeholder: "Type a keyword",
+              style: "width: 300px;"
+          %>
+        <%= submit_tag "Search", name: "", class: "default-btn btn btn-outline-dark ms-2" %>
+      <% end %>
+    </div>
+  </div>
+  <div class="row row-cols-1 row-cols-md-1 row-cols-lg-2 g-4 mb-5">
     <% @movies.each do |movie| %>
       <div class="col">
         <div class="movie-card h-100 d-flex flex-row">
           <div class="movie-img" style="background-image: url(<%= movie.poster_url %>)">
           </div>
-          <div class="movie-card-content d-flex flex-column">
+          <div class="movie-card-content d-flex flex-column justify-content-center position-relative" style="height: 100%">
             <div class="movie-card-body">
-              <h2 class="movie-title"><%= movie.title %></h2>
-              <p class="movie-overview"><%= movie.overview %></p>
-              <p class="movie-rating text-end"><i class="fa-regular fa-star"></i> <%= movie.rating.round(1) %></p>
+              <h2 class="movie-title mt-0"><%= movie.title %></h2>
+              <p class="movie-overview"><%= truncate(movie.overview, length: 550) %></p>
             </div>
-            <div class="movie-card-bottom d-flex mt-auto align-items-center">
-              <% unless movie.bookmarks.exists?(list_id: params[:list_id]) %>
-                <%= button_to list_movie_bookmarks_path(@list, movie), form_class: "bookmark-delete-btn-form", class: "bookmark-btn btn btn-outline-dark" do %>
-                  <i class="fa-solid fa-plus"></i> BOOKMARK
+            <div class="movie-card-bottom d-flex position-absolute bottom-0 align-items-center w-100">
+              <p class="movie-rating mb-0 ms-10px"><i class="fa-regular fa-star"></i> <%= movie.rating.round(1) %></p>
+              <div class="ms-auto">
+                <% unless movie.bookmarks.exists?(list_id: params[:list_id]) %>
+                  <%= button_to list_movie_bookmarks_path(@list, movie), form_class: "bookmark-delete-btn-form", class: "bookmark-btn btn btn-outline-dark" do %>
+                    <i class="fa-solid fa-plus"></i> BOOKMARK
+                  <% end %>
+                <% else %>
+                  <button class="bookmark-btn btn btn-outline-dark bookmark-delete-btn-form"><i class="fa-regular fa-circle-check"></i> SAVED</button>
                 <% end %>
-              <% else %>
-                <%= button_to list_movie_bookmarks_path(@list, movie), form_class: "bookmark-delete-btn-form", class: "bookmark-btn btn btn-outline-dark" do %>
-                  <i class="fa-regular fa-circle-check"></i> SAVED
-                <% end %>
-              <% end %>
+              </div>
             </div>
           </div>
         </div>

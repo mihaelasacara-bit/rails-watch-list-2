@@ -1,6 +1,6 @@
 <div class="container">
   <h1 class="page-title mt-3"> Lists index </h1>
-  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mb-5">
     <% @lists.each do |list| %>
       <div class="col">
         <div class="list-card h-100 d-flex flex-column">
@@ -9,7 +9,7 @@
             <h1><%= list.name %></h1>
           </div>
           <div class="list-card-bottom d-flex justify-content-between mt-auto">
-            <%= link_to list_path(list), class: "view-btn btn btn-outline-dark" do %>
+            <%= link_to list_path(list), class: "default-btn btn btn-outline-dark" do %>
             <i class="fa-regular fa-circle-play"></i> VIEW LIST
             <% end %>
           </div>

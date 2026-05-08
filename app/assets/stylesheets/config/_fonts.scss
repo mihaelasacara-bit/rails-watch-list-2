@@ -10,6 +10,16 @@ $paragraph-font-family: 'Open Sans', sans-serif;
   font-family: $heading-font-family;
 }
 
+.form-control{
+  font-family: $paragraph-font-family;
+}
+
+a {
+  font-family: $paragraph-font-family;
+  text-decoration: none !important;
+  font-size: 14px;
+}
+
 // Define fonts for body and headers
 // $body-font: "Work Sans", "Helvetica", "sans-serif";
 // $headers-font: "Nunito", "Helvetica", "sans-serif";

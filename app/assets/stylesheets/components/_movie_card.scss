@@ -15,7 +15,9 @@ body {
   color: lightgray;
   width: 100%;
   position: relative;
-  margin-bottom: 10px;
+  margin-bottom: 10;
+  margin-top: 10;
+  padding-top: 0;
 }
 
 .movie-img {
@@ -32,18 +34,32 @@ body {
 .movie-card-content {
   width: 66.666%;
   min-width: 0;
-  padding: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 10px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-self: stretch;
+  padding-bottom: 50px;
 }
 
 .movie-title {
   font-size: 20px;
   margin-bottom: 10px;
+  margin-top: 0;
+}
+
+#deletable-card-title {
+  margin-top: 25px;
+}
+
+.bookmark-delete-btn {
+  margin-bottom: 5px;
 }
 
 .movie-overview {
-  font-size: 12px;
+  font-size: 16px;
 }
 
 .bookmark-delete-btn {
@@ -60,7 +76,6 @@ body {
   justify-content: center;
   transition: background 0.2s ease;
   margin-top: 5px;
-  margin-bottom: 15px;
 }
 
 .bookmark-delete-btn:hover {
@@ -88,16 +103,17 @@ body {
 //   padding-top: 10px;
 // }
 
-// .movie-card-bottom{
-//   padding-left: 25px;
-//   padding-right: 25px;
-//   padding-bottom: 10px;
-// }
+.movie-card-bottom{
+  right: 0;
+}
 
 .bookmark-btn {
   color: $accent-color;
   border-color: $accent-color;
   font-size: 14px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  margin-top: 10px;
 }
 
 .bookmark-btn:hover {
@@ -106,8 +122,10 @@ body {
   }
 
 .movie-rating{
-  font-size: 14px;
+  font-size: 18px;
   margin-bottom: 0;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 /* TYPOGRAPHY STARTS */

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_05_04_150528) do
+ActiveRecord::Schema[8.1].define(version: 2026_05_08_104921) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -36,7 +36,9 @@ ActiveRecord::Schema[8.1].define(version: 2026_05_04_150528) do
     t.string "poster_url"
     t.float "rating"
     t.string "title"
+    t.integer "tmdb_id"
     t.datetime "updated_at", null: false
+    t.index ["tmdb_id"], name: "index_movies_on_tmdb_id", unique: true
   end
 
   add_foreign_key "bookmarks", "lists"
